@@ -4,10 +4,9 @@ import os
 import socket
 from urllib.parse import unquote
 
-# Configuration
 PORT = 8080
-DIRECTORY = os.getcwd()  # Use the current working directory
-BOUNDARY = b"----WebKitFormBoundary"  # Common boundary for multipart forms
+DIRECTORY = os.getcwd() 
+BOUNDARY = b"----WebKitFormBoundary" 
 
 class FileSharingHandler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
@@ -19,7 +18,6 @@ class FileSharingHandler(http.server.SimpleHTTPRequestHandler):
             self.send_header("Content-type", "text/html")
             self.end_headers()
             
-            # Generate HTML page with Japanese-inspired CSS
             html = f"""
             <!DOCTYPE html>
             <html lang="en">
@@ -242,11 +240,11 @@ class FileSharingHandler(http.server.SimpleHTTPRequestHandler):
                         <ul>
             """
             
-            # List all files in the directory with Unicode icons and download buttons
+           
             for filename in os.listdir(DIRECTORY):
-                # Determine file icon based on extension
+              
                 ext = os.path.splitext(filename)[1].lower()
-                icon = "📄"  # Default file icon
+                icon = "📄"  
                 if ext in ['.pdf']:
                     icon = "📕"
                 elif ext in ['.jpg', '.jpeg', '.png', '.gif']:
@@ -355,37 +353,37 @@ class FileSharingHandler(http.server.SimpleHTTPRequestHandler):
             
             self.wfile.write(html.encode())
         else:
-            # Serve the requested file
+            
             super().do_GET()
     
     def do_POST(self):
-        # Get content length
+       
         content_length = int(self.headers.get('Content-Length', 0))
         if content_length == 0:
             self.send_error(400, "No file was uploaded")
             return
 
-        # Read the raw POST data
+       
         raw_data = self.rfile.read(content_length)
         
-        # Find the file content in the multipart form data
+       
         try:
-            # Split by boundary
+            
             parts = raw_data.split(BOUNDARY)
             for part in parts:
                 if b'filename="' in part:
-                    # Extract filename
+                    
                     filename_start = part.find(b'filename="') + len(b'filename="')
                     filename_end = part.find(b'"', filename_start)
                     filename = part[filename_start:filename_end].decode('utf-8')
                     filename = os.path.basename(unquote(filename))
                     
-                    # Extract file content
+                   
                     content_start = part.find(b'\r\n\r\n') + 4
                     content_end = part.rfind(b'\r\n--')
                     file_content = part[content_start:content_end]
                     
-                    # Save the file
+                  
                     if filename and file_content:
                         file_path = os.path.join(DIRECTORY, filename)
                         with open(file_path, 'wb') as f:
@@ -401,10 +399,10 @@ class FileSharingHandler(http.server.SimpleHTTPRequestHandler):
             self.send_error(500, f"Error processing upload: {str(e)}")
 
 def get_local_ip():
-    # Get the local IP address
+   
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     try:
-        # Doesn't need to be reachable
+        
         s.connect(('10.255.255.255', 1))
         IP = s.getsockname()[0]
     except Exception:
@@ -414,7 +412,6 @@ def get_local_ip():
     return IP
 
 def main():
-    # Set up and start the server
     with socketserver.TCPServer(("", PORT), FileSharingHandler) as httpd:
         print(f"Server running at http://{get_local_ip()}:{PORT}")
         print(f"Sharing files from: {os.path.abspath(DIRECTORY)}")
