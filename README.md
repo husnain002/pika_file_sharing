@@ -81,11 +81,6 @@ The EXE version is a self-contained executable (bundled with PyInstaller) that r
 - **Firewall**: The EXE may prompt for firewall access to allow network traffic on port `8080`.
 - **Large Files**: Modern mobile browsers (Chrome, Safari) handle uploads well, but older browsers may have limitations.
 
-## 📱 Mobile Sharing Tips
-- Ensure your phone and the server computer are on the same Wi-Fi network.
-- If the server address doesn’t work, check your firewall settings to allow traffic on port `8080`.
-- For large files, ensure your phone’s browser supports uploads (modern browsers like Chrome and Safari work well).
-
 ## 📚 Contributing
 Want to add more Pokémon power? Contributions are welcome! Here's how to get started:
 1. Fork the repository.
