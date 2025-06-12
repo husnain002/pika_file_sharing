@@ -75,7 +75,8 @@
 ![image](https://github.com/user-attachments/assets/d762445d-bd1b-464e-b08b-364812bbf148)
 
 ### Mobile UI 2.0 
-![MobileUI](https://github.com/user-attachments/assets/a7b0b628-ecf8-4e1c-a1c4-ffb933b617c9)
+![image](https://github.com/user-attachments/assets/c07342a9-68c6-4497-8b8b-5c5d5973c0c7)
+
 
 *Share files and text with Pokémon-powered flair!*
 
