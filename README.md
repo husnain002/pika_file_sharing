@@ -72,7 +72,8 @@
 ## 🎨 Screenshots
 
 ### Desktop UI 2.0
-![image](https://github.com/user-attachments/assets/d762445d-bd1b-464e-b08b-364812bbf148)
+![image](https://github.com/user-attachments/assets/75edc58b-b47c-4601-aa2e-30f48968cc58)
+
 
 ### Mobile UI 2.0 
 ![image](https://github.com/user-attachments/assets/c07342a9-68c6-4497-8b8b-5c5d5973c0c7)
