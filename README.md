@@ -1,19 +1,27 @@
 # ⚡ Pikachu FileSync
 
-![Pikachu FileSync Banner](https://img.shields.io/badge/Pikachu%20FileSync-Pika%20Power!-yellow?style=for-the-badge&logo=python)
+![Pikachu FileSync Banner](https://img.shields.io/badge/Pikachu%20FileSync%202.0-Pika%20Power!-yellow?style=for-the-badge&logo=python)
 
-**Pikachu FileSync** is a lightning-fast, Pokémon-inspired file-sharing server built with Python. Share files from your computer or phone to any device on the same network with a sleek, Japanese-themed UI. Pika-pika! ⚡
+**Pikachu FileSync** is a lightning-fast, Pokémon-inspired file and text-sharing server built with Python. Share files and text snippets from your computer or phone to any device on the same network with a vibrant, Japanese-themed UI. Version 2.0 introduces text sharing with history, powered up by Pikachu’s Thunderbolt! Pika-pika! ⚡
 
 ## 🌟 Features
 
-- **⚡ Cross-Device Sharing**: Share files from your phone or computer to any device on the same Wi-Fi network.
-- **📂 Beautiful Interface**: Japanese-inspired, mobile-friendly HTML UI with a Pokémon twist.
+### Pikachu FileSync 2.0 (Latest)
+- **📋 Text Sharing**: Share text snippets instantly and view the last 5 entries in a history log.
+- **🗑️ Text History Management**: Clear text history with a single click.
+- **⚡ Cross-Device Sharing**: Share files and text from phones, tablets, or computers on the same Wi-Fi network.
+- **📂 Responsive Interface**: Mobile-optimized, Japanese-inspired UI with Pokémon flair.
 - **⬆ Easy Uploads**: Drag-and-drop or tap-to-upload files with real-time progress tracking.
 - **📄 File Previews**: Displays file icons based on type (PDF, images, docs, etc.).
-- **💾 Download Support**: One-click downloads with a Pokémon-powered button.
-- **🌐 Local Network Access**: Automatically detects and shares your local IP address.
-- **💻 Standalone EXE**: Download a pre-built executable for Windows, no Python required!
-- **🔒 Safe & Simple**: No external dependencies beyond Python's standard library for the source version.
+- **💾 Download Support**: One-click file downloads with a Pokémon-powered button.
+- **🌐 Local Network Access**: Auto-detects your local IP for seamless access.
+- **💻 Standalone EXE**: Download a pre-built executable for Windows, no Python required.
+- **🔒 Safe & Simple**: Uses Python’s standard library for minimal dependencies.
+
+### Pikachu FileSync 1.0 (Legacy)
+- File sharing with the same mobile-friendly UI and cross-device support.
+- Lacked text-sharing and history features introduced in 2.0.
+- Available in the [Releases](https://github.com/husnain002/pikachu-filesync/releases) for reference.
 
 ## 🚀 Getting Started
 
@@ -24,79 +32,85 @@
 - A love for Pokémon! ⚡
 
 ### Installation
+#### Option 1: Run with Python (Source Version)
 1. Clone the repository:
    ```bash
    git clone https://github.com/husnain002/pikachu-filesync.git
    cd pikachu-filesync
    ```
 
-2. Run the server on your computer:
+2. Run the server:
    ```bash
    python filesync.py
    ```
+
 #### Option 2: Use the EXE (Windows Only)
 1. Visit the [Releases](https://github.com/husnain002/pikachu-filesync/releases) page.
-2. Download the latest `filesync.exe` from the downloads section.
+2. Download the latest `PikachuFileSync.exe` (version 2.0 recommended).
 3. Double-click the EXE to start the server (no Python installation needed).
 4. Allow firewall access if prompted to enable network sharing.
 
-3. Note the server address (e.g., `http://192.168.1.100:8080`) displayed in the terminal.
+3. Note the server address (e.g., `http://192.168.1.100:8080`) displayed in the terminal or EXE console.
 
 ### Usage
 - **From a Phone**:
-  1. Ensure your phone is on the same Wi-Fi network as the computer running the server.
-  2. Open a browser (e.g., Chrome, Safari) on your phone.
-  3. Enter the server address (e.g., `http://192.168.1.100:8080`).
-  4. Tap "Browse" to select a file from your phone, then tap "Upload" to share it.
-  5. Download files by tapping the "⚡ Download" button next to any listed file.
+  1. Connect to the same Wi-Fi network as the server.
+  2. Open a browser (e.g., Chrome, Safari) and enter the server address.
+  3. **File Sharing**: Tap "Browse" to select a file, then "Upload" to share.
+  4. **Text Sharing**: Paste text in the textarea and click "Share Text". Copy or view recent texts in the history.
+  5. Download files by tapping the "⚡ Download" button or copy text with the "📋 Copy" button.
 
 - **From a Computer**:
-  1. Open a browser and visit the server address.
+  1. Visit the server address in a browser.
   2. Drag-and-drop or select files to upload.
-  3. Download files with the "⚡ Download" button.
+  3. Share text via the textarea or copy from history.
+  4. Download files with the "⚡ Download" button.
 
-- **Stop the Server**: Press `Ctrl+C` in the terminal to shut down.
+- **Text History**: View the last 5 shared texts with timestamps. Clear history with the "🗑️ Clear History" button.
+- **Stop the Server**: Press `Ctrl+C` in the terminal/EXE window or close the console.
 
 ## 🎨 Screenshots
 
+### Desktop UI 2.0
+![image](https://github.com/user-attachments/assets/d762445d-bd1b-464e-b08b-364812bbf148)
 
-![Pikachu FileSync UI](https://github.com/user-attachments/assets/0b417763-732b-42f6-a850-0d624fe4daed) 
-### Mobile UI
-![Pikachu FileSync UI_Mobile](https://github.com/user-attachments/assets/d9ea17a4-ee4d-40b1-8584-f2fd4f6720a3)
+### Mobile UI 2.0 
+![MobileUI](https://github.com/user-attachments/assets/a7b0b628-ecf8-4e1c-a1c4-ffb933b617c9)
 
-*Share files from your phone with Pokémon flair!*
+*Share files and text with Pokémon-powered flair!*
 
 ## 🛠️ How It Works
-Pikachu FileSync uses Python's `http.server` and `socketserver` to create a local web server. The custom `FileSharingHandler` class handles:
-- **GET Requests**: Serves a mobile-responsive HTML page or files.
-- **POST Requests**: Processes file uploads from phones or computers.
-- **Local IP Detection**: Automatically finds your machine's IP for easy access from any device.
+Pikachu FileSync uses Python’s `http.server` and `socketserver` to create a local web server. The `FileSharingHandler` class manages:
+- **GET Requests**: Serves a responsive HTML page or files.
+- **POST Requests**: Handles file uploads and text sharing, storing text in a `.shared_text.json` file.
+- **DELETE Requests**: Clears text history.
+- **Local IP Detection**: Auto-finds the server’s IP for easy access.
 
-The UI is optimized for mobile devices, with touch-friendly buttons and a responsive layout, ensuring a seamless experience for phone users.
-The EXE version is a self-contained executable (bundled with PyInstaller) that runs the same server without Python. The UI is mobile-optimized with touch-friendly buttons and a responsive layout.
+Version 2.0 adds text-sharing functionality, storing entries with timestamps and displaying them in a history section. The UI is mobile-optimized with responsive design, touch-friendly buttons, and clamp-based font sizing for accessibility across devices.
 
 ## 📱 EXE and Mobile Sharing Tips
-- **EXE Usage**: The EXE is for Windows users who want a quick setup. Download it from the [Releases](https://github.com/husnain002/pikachu-filesync/releases) page.
-- **Mobile Access**: Ensure your phone and the server computer are on the same Wi-Fi network.
-- **Firewall**: The EXE may prompt for firewall access to allow network traffic on port `8080`.
-- **Large Files**: Modern mobile browsers (Chrome, Safari) handle uploads well, but older browsers may have limitations.
+- **EXE Usage**: Download the Windows EXE from the [Releases](https://github.com/husnain002/pikachu-filesync/releases) page for quick setup without Python.
+- **Mobile Access**: Ensure devices are on the same Wi-Fi network. Use modern browsers (Chrome, Safari) for best performance.
+- **Firewall**: Allow port `8080` in firewall settings for network access.
+- **Large Files**: Older mobile browsers may struggle with large uploads.
+- **Text Sharing**: Text is stored locally in `.shared_text.json` and limited to the last 5 entries for simplicity.
 
 ## 📚 Contributing
-Want to add more Pokémon power? Contributions are welcome! Here's how to get started:
+Want to supercharge Pikachu’s powers? Contributions are welcome!
 1. Fork the repository.
-2. Create a new branch (`git checkout -b feature/pika-mobile`).
-3. Make your changes and commit (`git commit -m "Added mobile upload enhancements"`).
-4. Push to the branch (`git push origin feature/pika-mobile`).
+2. Create a new branch (`git checkout -b feature/pika-text`).
+3. Make changes and commit (`git commit -m "Enhanced text sharing feature"`).
+4. Push to the branch (`git push origin feature/pika-text`).
 5. Open a Pull Request.
 
-Please follow the [Code of Conduct](CODE_OF_CONDUCT.md) and check the [Issues](https://github.com/husnain002/pikachu-filesync/issues) for ideas.
+See the [Code of Conduct](CODE_OF_CONDUCT.md) and check [Issues](https://github.com/husnain002/pikachu-filesync/issues) for ideas.
 
 ## ⚠️ Notes
-- The server runs on port `8080` by default. Change the `PORT` variable in `filesync.py` if needed.
-- Files are stored in the current working directory. Ensure you have write permissions.
-- This is designed for local network use. Do not expose to the public internet without proper security measures.
-- Some older phone browsers may have limitations with large file uploads.
-- The EXE is Windows-only; use the Python version for other OSes.
+- **Port**: Runs on port `8080` by default. Modify `PORT` in `filesync.py` if needed.
+- **Storage**: Files and text history (`.shared_text.json`) are stored in the current directory. Ensure write permissions.
+- **Security**: Designed for local networks. Avoid public internet exposure without proper security.
+- **EXE**: Windows-only; use the Python version for macOS/Linux.
+- **Version 1.0**: Available in older releases for file-only sharing.
 
 ## 📜 License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
@@ -108,5 +122,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ---
 
-**Pika-pika!** Share files from your phone or computer with the speed of a Thunderbolt! 🌩️  
-Star this repo if you love Pokémon and cross-device file sharing! ⭐
+**Pika-pika!** Share files and text with the speed of a Thunderbolt! 🌩️  
+Star this repo if you love Pokémon and cross-device sharing! ⭐
