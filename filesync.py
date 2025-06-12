@@ -72,6 +72,19 @@ class FileSharingHandler(http.server.SimpleHTTPRequestHandler):
                         font-size: clamp(0.9rem, 3vw, 1rem);
                         margin-top: 0.5rem;
                     }}
+                    .signature {{
+                        color: #5c6b73;
+                        font-size: clamp(0.75rem, 2vw, 0.8rem);
+                        margin-top: 0.5rem;
+                    }}
+                    .signature a {{
+                        color: #2a9d8f;
+                        text-decoration: none;
+                        margin: 0 0.5rem;
+                    }}
+                    .signature a:hover {{
+                        text-decoration: underline;
+                    }}
                     .card {{
                         background-color: #ffffff;
                         border-radius: 8px;
@@ -340,8 +353,13 @@ class FileSharingHandler(http.server.SimpleHTTPRequestHandler):
                     <div class="header">
                         <h1>⚡Pikachu FileSync</h1>
                         <p>Pika-pika! Share files and text with Pokémon power!</p>
-                    </div>
                     
+                        <div class="signature">
+                            Created by Husnain Shahid | 
+                            <a href="https://www.linkedin.com/in/husnain-shahid-5b6b471b8" target="_blank">LinkedIn</a> | 
+                            <a href="https://github.com/husnain002" target="_blank">GitHub</a>
+                        </div>
+                    </div>
                     <div class="card">
                         <h2>📋 Share Text</h2>
                         <form id="textForm">
